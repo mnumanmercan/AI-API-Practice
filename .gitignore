@@ -1,0 +1,2 @@
+# API keys and other secrets should not be committed to version control. Add them to .env and add .env to .gitignore.
+.env
