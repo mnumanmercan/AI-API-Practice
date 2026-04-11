@@ -2,6 +2,7 @@
 
 Bu repo, Claude API'nin temel kullanım senaryolarını Jupyter Notebook'lar üzerinden göstermektedir.
 
+Paylaşılan notlar [Claude With the Anthropic API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) kursundaki dökümanlardan çıkartılmıştır. Daha detaylı bilgi için kursu ziyaret edebilirsiniz.
 ## System Prompt
 
 `system` parametresi, modelin davranışını ve rolünü tanımlamak için kullanılır. Kullanıcı mesajlarından önce işlenir ve tüm konuşma boyunca geçerliliğini korur. Örneğin [`002_system_prompt.ipynb`](002_system_prompt.ipynb) dosyasında Claude, **sabırlı bir matematik öğretmeni** olarak tanımlanmış ve cevapları doğrudan vermek yerine öğrenciyi adım adım çözüme yönlendirmesi sağlanmıştır:
