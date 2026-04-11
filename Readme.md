@@ -26,3 +26,25 @@ answer = chat(messages, temperature=1.0)
 #    on Earth is sharing the same dream, she has 72 hours to stop an ancient
 #    entity from trapping humanity in permanent sleep..."
 ```
+
+## Response Streaming
+
+Varsayılan API çağrısında model yanıtın tamamını oluşturduktan sonra tek seferde döndürür; bu, uzun yanıtlarda kullanıcının ekranda hiçbir şey görmeden beklediği anlamına gelir. Streaming, yanıtı token token anlık olarak iletir ve kullanıcı deneyimini belirgin biçimde iyileştirir — ChatGPT benzeri uygulamalardaki "yazıyormuş gibi" hissi tam olarak bu yapıyla sağlanır. [`004_response_stream.ipynb`](004_response_stream.ipynb) dosyasında iki yöntem gösterilmiştir: `stream=True` ile ham event'lere erişim ve `client.messages.stream()` ile daha sade bir text stream:
+
+```python
+# Ham event akışı — her token bir RawContentBlockDeltaEvent olarak gelir
+stream = client.messages.create(model=model, max_tokens=1000, messages=messages, stream=True)
+for event in stream:
+    print(event)
+
+# Sade text stream — yalnızca metin parçaları, karakter karakter yazdırılır
+with client.messages.stream(model=model, max_tokens=1000, messages=messages) as stream:
+    for text in stream.text_stream:
+        print(text, end="")
+```
+
+## Prompt Engineering & Prompt Evaluation
+
+**Prompt Engineering**, modelden istenen çıktıyı tutarlı biçimde elde etmek için komutu tasarlama ve iyileştirme sürecidir; multishot prompting ve XML etiketleriyle yapılandırma gibi teknikler bu kapsamda yer alır. Ancak iyi bir komut yazmak tek başına yeterli değildir — üretim ortamına geçildiğinde kullanıcılar sistemi hiç tahmin edilmeyen yollarla zorlayacak ve geliştirme sırasında sağlam görünen bir komut hızla bozulabilecektir.
+
+**Prompt Evaluation** ise komutun ne kadar güvenilir çalıştığını nesnel olarak ölçer. En sağlam yaklaşım, komutu otomatik bir değerlendirme hattından geçirip geniş test senaryoları üzerinde puanlamak ve bu verilere dayanarak yinelemektir — böylece zayıf noktalar kullanıcıya ulaşmadan yakalanır, farklı komut sürümleri karşılaştırılabilir ve her iyileştirme ölçülebilir kanıta dayanır.
