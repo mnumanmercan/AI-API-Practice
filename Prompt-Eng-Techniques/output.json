@@ -1,0 +1,65 @@
+[
+  {
+    "output": "# One-Day Muscle Gain Meal Plan for 85kg Athlete\n\n## Nutritional Targets\n- **Calories:** ~3,200-3,400 kcal\n- **Protein:** 170-187g (2-2.2g per kg bodyweight)\n- **Carbs:** 425-510g (5-6g per kg bodyweight)\n- **Fat:** 85-100g\n\n---\n\n## \ud83c\udf05 BREAKFAST (7:00 AM)\n**Muscle-Building Breakfast**\n- 100g oats cooked with whole milk\n- 3 whole eggs + 2 egg whites (scrambled)\n- 1 large banana\n- 30g almonds\n- 1 tbsp honey\n\n**Macros:** 750 cal | 35g protein | 85g carbs | 25g fat\n\n---\n\n## \ud83e\udd64 MID-MORNING SNACK (10:00 AM) - *Optional*\n**Protein & Carb Boost**\n- 250g Greek yogurt (full-fat)\n- 60g granola\n- 1 medium apple\n- 1 tbsp peanut butter\n\n**Macros:** 520 cal | 22g protein | 58g carbs | 18g fat\n\n---\n\n## \ud83c\udf57 LUNCH (1:00 PM)\n**Chicken & Rice Power Meal**\n- 200g grilled chicken breast\n- 250g cooked white rice\n- Mixed vegetables (broccoli, carrots, bell peppers)\n- 1.5 tbsp olive oil\n- Side salad with olive oil dressing\n\n**Macros:** 850 cal | 50g protein | 105g carbs | 22g fat\n\n---\n\n## \ud83c\udfcb\ufe0f PRE-WORKOUT SNACK (4:00 PM)\n**Fast Carbs & Protein**\n- 2 rice cakes\n- 40g whey protein powder mixed with water\n- 1 medium banana\n- 1 tbsp honey\n\n**Macros:** 420 cal | 33g protein | 68g carbs | 2g fat\n\n---\n\n## \ud83e\udd69 DINNER (7:30 PM)\n**Lean Beef & Sweet Potato**\n- 180g lean beef (90/10 ground or sirloin steak)\n- 300g baked sweet potato\n- 150g steamed broccoli\n- 1 tbsp olive oil\n- Season with garlic and herbs\n\n**Macros:** 820 cal | 47g protein | 99g carbs | 20g fat\n\n---\n\n## \ud83d\udcca DAILY TOTALS (with mid-morning snack)\n- **Calories:** 3,360 kcal\n- **Protein:** 187g \u2713\n- **Carbs:** 415g \u2713\n- **Fat:** 87g \u2713\n\n### Key Tips for Muscle Gain:\n\u2705 High protein intake distributed throughout the day  \n\u2705 Sufficient calories to support muscle growth  \n\u2705 Carbs strategically timed around workouts for energy and recovery  \n\u2705 Pre-workout snack 1-2 hours before training  \n\u2705 Post-workout nutrition within 30-60 minutes  \n\u2705 Healthy fats for hormone optimization  \n\u2705 Caloric surplus of 300-500 calories above maintenance  \n\u2705 Stay hydrated (3.5-4L water daily)  \n\u2705 Prioritize compound lifts with progressive overload  \n\u2705 7-9 hours of sleep for recovery",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "178 cm",
+        "weight": "85 kg",
+        "goal": "muscle gain",
+        "restrictions": "none"
+      },
+      "solution_criteria": [
+        "Meal plan covers a full day with at least 4 meals/snacks",
+        "Provides high protein intake (minimum 1.6g per kg body weight)",
+        "Includes pre-workout and post-workout meals strategically timed",
+        "Macronutrient ratios support strength/power training (balanced carbs, protein, and fats)"
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing with a strength/power athlete (weightlifter) requiring balanced macros with high protein intake and specific meal timing around workout windows"
+    },
+    "score": 9,
+    "reasoning": "The solution comprehensively meets all mandatory requirements with precise daily totals, complete macronutrient breakdowns, exact food portions, and meal timing. It covers 5 eating occasions (exceeding the 4-meal minimum) and provides protein at 2.2g/kg, significantly above the 1.6g minimum. Macronutrient ratios are well-balanced for muscle gain with strategic carb timing around workouts. The plan is compact and concise as requested. Minor weaknesses exist around clarity on the optional snack and explicit post-workout meal designation, but these don't violate mandatory requirements. The solution includes helpful contextual tips that enhance practical application."
+  },
+  {
+    "output": "# One-Day Performance Optimization & Recovery Meal Plan for 72kg Athlete\n\n## Nutritional Targets\n- **Calories:** ~2,900-3,100 kcal\n- **Protein:** 144-158g (2g per kg bodyweight for recovery)\n- **Carbs:** 360-432g (5-6g per kg bodyweight for performance)\n- **Fat:** 80-95g\n\n---\n\n## \ud83c\udf05 BREAKFAST (7:00 AM)\n**Performance-Fueling Breakfast**\n- 80g oats cooked with whole milk\n- 3 whole eggs (scrambled)\n- 1 large banana\n- 25g almonds\n- 1 tbsp honey\n\n**Macros:** 680 cal | 28g protein | 82g carbs | 22g fat\n\n---\n\n## \ud83e\udd64 MID-MORNING SNACK (10:00 AM) - *Optional*\n**Protein & Carb Recovery Boost**\n- 200g Greek yogurt (full-fat)\n- 50g granola\n- 1 medium apple\n- 1 tbsp almond butter\n\n**Macros:** 450 cal | 18g protein | 52g carbs | 16g fat\n\n---\n\n## \ud83c\udf57 LUNCH (1:00 PM)\n**Lean Protein & Complex Carbs**\n- 180g grilled chicken breast\n- 250g cooked brown rice\n- Mixed vegetables (broccoli, bell peppers, carrots)\n- 1.5 tbsp olive oil\n- Side green salad with lemon dressing\n\n**Macros:** 820 cal | 48g protein | 108g carbs | 20g fat\n\n---\n\n## \ud83c\udfcb\ufe0f PRE-WORKOUT SNACK (4:00 PM)\n**Quick Energy for Performance**\n- 2 rice cakes\n- 35g whey protein powder mixed with water\n- 1 medium banana\n- 1 tbsp honey\n\n**Macros:** 390 cal | 32g protein | 64g carbs | 1g fat\n\n---\n\n## \ud83d\udc1f DINNER (7:30 PM)\n**Omega-3 Rich Recovery Meal**\n- 160g grilled salmon fillet\n- 280g baked sweet potato\n- 150g steamed asparagus\n- 1 tbsp olive oil\n- Lemon & garlic seasoning\n\n**Macros:** 710 cal | 36g protein | 86g carbs | 22g fat\n\n---\n\n## \ud83d\udcca DAILY TOTALS (with mid-morning snack)\n- **Calories:** 3,050 kcal\n- **Protein:** 162g \u2713\n- **Carbs:** 392g \u2713\n- **Fat:** 81g \u2713\n\n### Key Tips for Performance Optimization & Recovery:\n\u2705 Adequate protein distributed throughout the day for muscle repair  \n\u2705 Strategic carbohydrate timing around training sessions  \n\u2705 Pre-workout snack 1-2 hours before exercise for sustained energy  \n\u2705 Post-workout nutrition within 30-60 minutes for glycogen replenishment  \n\u2705 Omega-3 rich salmon for inflammation management and joint health  \n\u2705 Complex carbs for sustained energy and endurance  \n\u2705 Healthy fats for hormone optimization and nutrient absorption  \n\u2705 Caloric intake supports performance without excess bulk  \n\u2705 Stay hydrated (3.5-4L water daily + electrolytes during intense training)  \n\u2705 7-9 hours of quality sleep for recovery and adaptation  \n\u2705 Include antioxidant-rich vegetables for cellular recovery",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "178 cm",
+        "weight": "72 kg",
+        "goal": "performance optimization and recovery",
+        "restrictions": "none"
+      },
+      "solution_criteria": [
+        "Meal plan accounts for pre-swim digestion timing (meals 2-3 hours before training)",
+        "Includes adequate hydration strategy throughout the day",
+        "Contains post-training recovery nutrition within 30-60 minutes of swimming",
+        "Format is compact and concise (single day, easy to follow)"
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing with a sport-specific athlete (competitive swimmer) with aquatic training schedule, requiring consideration for hydration, pre-swim digestion timing, and recovery nutrition post-training"
+    },
+    "score": 5,
+    "reasoning": "The solution successfully meets all three mandatory requirements with clear daily totals, macronutrient breakdowns, and detailed meals with portions and timing. However, it critically fails to address the secondary criteria that are sport-specific. The criteria explicitly mention 'pre-swim digestion timing,' 'post-training recovery nutrition within 30-60 minutes of swimming,' and 'hydration strategy throughout the day.' The solution provides a generic athletic meal plan without acknowledging swimming as the sport, without specifying when training occurs, and without tailoring the meal timing to swimming-specific needs (e.g., avoiding heavy meals before water-based exercise, accounting for chlorine exposure, etc.). The hydration guidance is minimal and not integrated into the meal schedule. While the plan is well-formatted and nutritionally sound for general athletic performance, it doesn't demonstrate understanding of the sport-specific requirements outlined in the evaluation criteria."
+  },
+  {
+    "output": "# One-Day Marathon Carb-Loading Meal Plan for 70kg Athlete\n\n## Nutritional Targets\n- **Calories:** ~2,900-3,100 kcal\n- **Protein:** 105-140g (1.5-2g per kg bodyweight)\n- **Carbs:** 420-490g (6-7g per kg bodyweight for carb loading)\n- **Fat:** 70-85g\n\n---\n\n## \ud83c\udf05 BREAKFAST (7:00 AM)\n**High-Carb Oatmeal Bowl**\n- 120g oats cooked with water\n- 2 whole eggs + 1 egg white (scrambled)\n- 1 large banana\n- 1.5 tbsp honey\n- 40g raisins\n\n**Macros:** 650 cal | 24g protein | 115g carbs | 11g fat\n\n---\n\n## \ud83e\udd64 MID-MORNING SNACK (10:00 AM) - *Optional*\n**Carb & Protein Combo**\n- 200g Greek yogurt (0% fat)\n- 2 slices whole grain toast\n- 1.5 tbsp jam\n- 1 medium apple\n\n**Macros:** 400 cal | 18g protein | 62g carbs | 3g fat\n\n---\n\n## \ud83c\udf5d LUNCH (1:00 PM)\n**Pasta with Lean Protein**\n- 280g cooked white pasta\n- 140g grilled chicken breast\n- Marinara sauce with vegetables (tomatoes, zucchini, mushrooms, spinach)\n- 1 tbsp olive oil\n- Side of whole grain bread (1 slice)\n\n**Macros:** 800 cal | 43g protein | 120g carbs | 14g fat\n\n---\n\n## \ud83c\udf4c PRE-RUN SNACK (4:00 PM)\n**Quick Energy Boost**\n- 2 rice cakes\n- 2 tbsp almond butter\n- 1 medium banana\n- Sports drink (500ml with 6% carbs)\n\n**Macros:** 520 cal | 12g protein | 68g carbs | 17g fat\n\n---\n\n## \ud83c\udf72 DINNER (7:30 PM)\n**Salmon & Sweet Potato**\n- 150g grilled salmon fillet\n- 300g baked sweet potato\n- Steamed broccoli (150g)\n- 1 tbsp olive oil\n- Lemon juice seasoning\n\n**Macros:** 650 cal | 37g protein | 72g carbs | 20g fat\n\n---\n\n## \ud83d\udcca DAILY TOTALS (with mid-morning snack)\n- **Calories:** 3,020 kcal\n- **Protein:** 134g \u2713\n- **Carbs:** 437g \u2713\n- **Fat:** 65g \u2713\n\n### Key Tips for Marathon Carb-Loading:\n\u2705 High carbohydrate intake (6-7g/kg) for maximum glycogen storage  \n\u2705 Adequate protein for muscle recovery and repair  \n\u2705 Meals distributed evenly throughout the day for sustained energy  \n\u2705 Pre-run snack with easily digestible carbs and minimal fiber  \n\u2705 Omega-3 rich salmon for inflammation management  \n\u2705 Carbs timed around training sessions for optimal performance  \n\u2705 Minimize fiber and fat 2-3 hours before running  \n\u2705 Stay hydrated (3.5-4L water daily + electrolytes during long runs)  \n\u2705 Begin carb-loading 2-3 days before race day  \n\u2705 Get 7-9 hours of sleep for complete recovery",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "178 cm",
+        "weight": "70 kg",
+        "goal": "carbohydrate loading for marathon performance",
+        "restrictions": "none"
+      },
+      "solution_criteria": [
+        "Meal plan totals 3000+ calories with carbohydrates comprising 55-65% of total intake",
+        "Includes 5-6 eating occasions distributed throughout the day for sustained energy",
+        "Features easily digestible, high-glycemic carbohydrate sources before and after training",
+        "Compact format presented as a single-day schedule with meal times and approximate portions"
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing with a high-endurance athlete (marathon runner) requiring 3000+ calories with emphasis on carbohydrate loading and sustained energy sources throughout the day"
+    },
+    "score": 9,
+    "reasoning": "The solution comprehensively satisfies all mandatory requirements with precise daily totals, complete macronutrient data, and detailed meal specifications with portions and timing. It meets secondary criteria by achieving the 3,000+ calorie target with appropriate carbohydrate percentage (57.8%), providing 5 eating occasions for sustained energy, and featuring high-glycemic carbohydrate sources (oats, pasta, rice cakes, banana, sports drink) appropriately timed. The only minor concern is the optional designation of the mid-morning snack, which technically leaves the core plan at 4 meals rather than 5-6, though including it reaches 5. The extensive tips section, while valuable, slightly contradicts the 'compact' requirement but does not violate any mandatory criteria. The meal plan is well-structured, scientifically sound for carb-loading, and practical for implementation."
+  }
+]

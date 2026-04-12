@@ -44,6 +44,47 @@ with client.messages.stream(model=model, max_tokens=1000, messages=messages) as 
         print(text, end="")
 ```
 
+## Prompt Engineering Techniques
+
+**Prompt Engineering**, modelden tutarlı ve yapılandırılmış çıktılar elde etmek için komutun nasıl tasarlandığına dair bir dizi pratik tekniği kapsar. [`001_prompting.ipynb`](Prompt-Eng-Techniques/001_prompting.ipynb) dosyasında bu tekniklerin birlikte nasıl çalıştığı somut bir pipeline üzerinden gösterilmektedir: **Prefill + Stop Sequences** ile model, yanıtını doğrudan `json` bloğundan başlatmaya ve kapanış backtick'ini gördüğünde durmaya zorlanır; bu sayede `json.loads()` için ek temizleme adımı gerekmez. **XML etiketleri** (`<task_description>`, `<criteria>`, `<solution>` vb.) ise bağlamı açık sınırlarla bölümlere ayırarak modelin hangi parçayı nasıl yorumlaması gerektiğini netleştirir ve tutarlı çıktı üretimi sağlar.
+
+Teknikler yalnızca tek bir noktada değil, birbirini tamamlayacak biçimde katmanlanır. **Template tabanlı prompting** (`render()` fonksiyonu), prompt metninin içindeki `{değişken}` yer tutucularını çalışma zamanında değiştirerek aynı prompt şablonunu farklı senaryolara uyarlamayı kolaylaştırır. **Few-shot (çok örnekli) prompting**, `<sample_input>` / `<ideal_output>` blokları halinde modele beklenen çıktı biçimini doğrudan öğretirken, **sıcaklık kontrolü** (`temperature=1.0` fikir üretiminde, `temperature=0.0` puanlamada) görevin yaratıcılık-tutarlılık dengesine göre ayarlanır. Tüm bu teknikler bir arada kullanıldığında prompt hem esnekliğini hem güvenilirliğini korur.
+
+```python
+# Prefill + Stop Sequences — model JSON'dan başlar, kapanış ``` işaretinde durur
+messages = []
+add_user_message(messages, rendered_prompt)
+add_assistant_message(messages, "```json")          # prefill: yanıt buradan başlar
+text = chat(messages, stop_sequences=["```"])       # kapanış backtick'inde dur
+result = json.loads(text)                           # doğrudan parse edilebilir çıktı
+
+# XML etiketleri + Few-shot örnek — bağlam bölümlere ayrılır, beklenen format gösterilir
+prompt = """
+<task_description>
+{task}
+</task_description>
+
+<sample_input>
+  <content>Güneş enerjisi maliyetleri 2010'dan bu yana %89 düştü...</content>
+</sample_input>
+<ideal_output>
+```json
+{"solution_criteria": ["Tüm konular listelenmeli"]}
+```
+</ideal_output>
+
+Şimdi şu girdi için aynı formatı üret:
+<content>{actual_content}</content>
+"""
+
+# Template render — aynı şablon farklı senaryolara uyarlanır
+rendered = evaluator.render(prompt, {"task": task_desc, "actual_content": content})
+
+# Sıcaklık kontrolü — fikir üretiminde yaratıcılık, puanlamada deterministiklik
+ideas  = chat(messages, temperature=1.0)   # çeşitli ve özgün fikirler
+grades = chat(messages, temperature=0.0)   # tekrarlanabilir, kararlı puanlama
+```
+
 ## Prompt Engineering & Prompt Evaluation
 
 **Prompt Engineering**, modelden istenen çıktıyı tutarlı biçimde elde etmek için komutu tasarlama ve iyileştirme sürecidir; multishot prompting ve XML etiketleriyle yapılandırma gibi teknikler bu kapsamda yer alır. Ancak iyi bir komut yazmak tek başına yeterli değildir — üretim ortamına geçildiğinde kullanıcılar sistemi hiç tahmin edilmeyen yollarla zorlayacak ve geliştirme sırasında sağlam görünen bir komut hızla bozulabilecektir.

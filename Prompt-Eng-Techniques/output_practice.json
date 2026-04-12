@@ -1,0 +1,40 @@
+[
+  {
+    "output": "```json\n[\n  \"intrinsically disordered proteins\",\n  \"conformational dynamics\",\n  \"structural biology\",\n  \"nuclear magnetic resonance spectroscopy\",\n  \"residual dipolar coupling\",\n  \"paramagnetic relaxation enhancement\",\n  \"conformational ensembles\",\n  \"X-ray crystallography\",\n  \"small-angle X-ray scattering\",\n  \"molecular dynamics simulations\",\n  \"radius of gyration\",\n  \"end-to-end distance distributions\",\n  \"protein binding mechanisms\",\n  \"conformational heterogeneity\",\n  \"functional specificity\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The conformational dynamics of intrinsically disordered proteins (IDPs) present significant challenges for structural biology, as their lack of stable tertiary structure precludes conventional X-ray crystallography approaches. Recent advances in nuclear magnetic resonance (NMR) spectroscopy, particularly residual dipolar coupling (RDC) measurements and paramagnetic relaxation enhancement (PRE), have enabled characterization of transient conformational ensembles populated by IDPs in solution. Furthermore, small-angle X-ray scattering (SAXS) data combined with molecular dynamics (MD) simulations provide complementary insights into the radius of gyration and end-to-end distance distributions, which are critical for understanding how IDPs achieve functional specificity through context-dependent binding mechanisms that exploit their conformational heterogeneity.",
+        "goal": "Identify and extract all key topics, concepts, and methodologies discussed in this molecular biology passage into a JSON array of strings. Topics may include specific techniques, biological phenomena, structural properties, or analytical approaches mentioned or implied in the text."
+      },
+      "solution_criteria": [
+        "Extraction captures all major technical methodologies mentioned (NMR, RDC, PRE, SAXS, MD simulations, X-ray crystallography)",
+        "Includes core biological concepts (intrinsically disordered proteins, conformational dynamics, conformational ensembles, functional specificity)",
+        "Topics are distinct, non-redundant strings appropriate for a JSON array format",
+        "Recognizes field-specific terminology and implicit topics (e.g., structural biology, conformational heterogeneity, binding mechanisms)"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+      "scenario": "Testing with a dense, highly technical passage from a specialized field (e.g., quantum physics or molecular biology) containing domain-specific jargon and implicit topics that require understanding of field-specific conventions"
+    },
+    "score": 9,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary. It comprehensively addresses the secondary criteria by capturing all six major methodologies (NMR, RDC, PRE, SAXS, MD, X-ray crystallography), core biological concepts (IDPs, conformational dynamics, ensembles, functional specificity), and field-specific terminology (conformational heterogeneity, structural biology). The topics are distinct and non-redundant. Minor improvements could include 'solution' as a context and slightly more specificity in 'protein binding mechanisms,' but these are negligible omissions that do not significantly impact the quality of the extraction."
+  },
+  {
+    "output": "```json\n[\n  \"consumer choice\",\n  \"digital markets\",\n  \"psychological preferences\",\n  \"market structure\",\n  \"social inequality\",\n  \"behavioral economics\",\n  \"cognitive biases\",\n  \"loss aversion\",\n  \"choice overload\",\n  \"platform algorithms\",\n  \"economic inequality\",\n  \"digital access\",\n  \"psychological well-being\",\n  \"social comparison effects\",\n  \"social media\",\n  \"digital consumption patterns\",\n  \"class stratification\",\n  \"algorithmic curation\",\n  \"targeted advertising\",\n  \"decision-making vulnerabilities\",\n  \"market efficiency\",\n  \"individual autonomy\",\n  \"distributive justice\",\n  \"digital economy\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The phenomenon of consumer choice in digital markets reveals complex interactions between individual psychological preferences, market structure, and social inequality. Behavioral economists have documented how cognitive biases\u2014such as loss aversion and choice overload\u2014influence purchasing decisions, while simultaneously, platform algorithms shape available options based on predictive models of user behavior. This creates a feedback loop where economic inequality affects digital access, which in turn influences psychological well-being through social comparison effects on social media. Furthermore, sociological research demonstrates that these digital consumption patterns reinforce existing class stratification, as affluent consumers gain access to premium algorithmic curation while lower-income users encounter targeted advertising designed to exploit decision-making vulnerabilities. The intersection of these mechanisms raises questions about market efficiency, individual autonomy, and distributive justice in the digital economy.",
+        "goal": "Identify and extract the key topics and concepts discussed in this interdisciplinary passage. The topics may span economics, psychology, and sociology. Return the results as a JSON array of strings, where each string represents a distinct topic or concept mentioned in the text."
+      },
+      "solution_criteria": [
+        "Extracts topics spanning at least three different disciplines (economics, psychology, sociology)",
+        "Includes both individual-level concepts (e.g., cognitive biases) and system-level concepts (e.g., market structure, social inequality)",
+        "Captures bridging concepts that explicitly connect multiple domains (e.g., the feedback loop between inequality and digital access)",
+        "Returns output as a valid JSON array of strings with no duplicates"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+      "scenario": "Testing with a passage containing interdisciplinary topics that span multiple fields (e.g., economics, psychology, and sociology), requiring the extraction of concepts that bridge different domains"
+    },
+    "score": 8,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings with no duplicates, contains only topic names without commentary, and returns only the JSON array. It meets most secondary criteria by extracting topics across three disciplines and including both individual and system-level concepts. However, it falls short on explicitly capturing bridging concepts that connect multiple domains. The task asks for concepts that 'explicitly connect multiple domains,' and while the individual topics are present, the solution doesn't extract the relational/bridging concepts themselves (e.g., the feedback loop between inequality and digital access as a distinct topic). This is a notable but not critical gap, as the individual components are present."
+  }
+]

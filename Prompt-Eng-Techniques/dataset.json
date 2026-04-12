@@ -1,0 +1,50 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "85 kg",
+      "goal": "muscle gain",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan covers a full day with at least 4 meals/snacks",
+      "Provides high protein intake (minimum 1.6g per kg body weight)",
+      "Includes pre-workout and post-workout meals strategically timed",
+      "Macronutrient ratios support strength/power training (balanced carbs, protein, and fats)"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a strength/power athlete (weightlifter) requiring balanced macros with high protein intake and specific meal timing around workout windows"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "70 kg",
+      "goal": "carbohydrate loading for marathon performance",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan totals 3000+ calories with carbohydrates comprising 55-65% of total intake",
+      "Includes 5-6 eating occasions distributed throughout the day for sustained energy",
+      "Features easily digestible, high-glycemic carbohydrate sources before and after training",
+      "Compact format presented as a single-day schedule with meal times and approximate portions"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a high-endurance athlete (marathon runner) requiring 3000+ calories with emphasis on carbohydrate loading and sustained energy sources throughout the day"
+  },
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "72 kg",
+      "goal": "performance optimization and recovery",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Meal plan accounts for pre-swim digestion timing (meals 2-3 hours before training)",
+      "Includes adequate hydration strategy throughout the day",
+      "Contains post-training recovery nutrition within 30-60 minutes of swimming",
+      "Format is compact and concise (single day, easy to follow)"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a sport-specific athlete (competitive swimmer) with aquatic training schedule, requiring consideration for hydration, pre-swim digestion timing, and recovery nutrition post-training"
+  }
+]

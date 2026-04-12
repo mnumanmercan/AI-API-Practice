@@ -1,0 +1,209 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">2</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.5 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a dense, highly technical passage from a specialized field (e.g., quantum physics or molecular biology) containing domain-specific jargon and implicit topics that require understanding of field-specific conventions</td>
+                <td class="prompt-inputs"><strong>content:</strong> The conformational dynamics of intrinsically disordered proteins (IDPs) present significant challenges for structural biology, as their lack of stable tertiary structure precludes conventional X-ray crystallography approaches. Recent advances in nuclear magnetic resonance (NMR) spectroscopy, particularly residual dipolar coupling (RDC) measurements and paramagnetic relaxation enhancement (PRE), have enabled characterization of transient conformational ensembles populated by IDPs in solution. Furthermore, small-angle X-ray scattering (SAXS) data combined with molecular dynamics (MD) simulations provide complementary insights into the radius of gyration and end-to-end distance distributions, which are critical for understanding how IDPs achieve functional specificity through context-dependent binding mechanisms that exploit their conformational heterogeneity.<br><strong>goal:</strong> Identify and extract all key topics, concepts, and methodologies discussed in this molecular biology passage into a JSON array of strings. Topics may include specific techniques, biological phenomena, structural properties, or analytical approaches mentioned or implied in the text.</td>
+                <td class="criteria">• Extraction captures all major technical methodologies mentioned (NMR, RDC, PRE, SAXS, MD simulations, X-ray crystallography)<br>• Includes core biological concepts (intrinsically disordered proteins, conformational dynamics, conformational ensembles, functional specificity)<br>• Topics are distinct, non-redundant strings appropriate for a JSON array format<br>• Recognizes field-specific terminology and implicit topics (e.g., structural biology, conformational heterogeneity, binding mechanisms)</td>
+                <td class="output"><pre>```json
+[
+  "intrinsically disordered proteins",
+  "conformational dynamics",
+  "structural biology",
+  "nuclear magnetic resonance spectroscopy",
+  "residual dipolar coupling",
+  "paramagnetic relaxation enhancement",
+  "conformational ensembles",
+  "X-ray crystallography",
+  "small-angle X-ray scattering",
+  "molecular dynamics simulations",
+  "radius of gyration",
+  "end-to-end distance distributions",
+  "protein binding mechanisms",
+  "conformational heterogeneity",
+  "functional specificity"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary. It comprehensively addresses the secondary criteria by capturing all six major methodologies (NMR, RDC, PRE, SAXS, MD, X-ray crystallography), core biological concepts (IDPs, conformational dynamics, ensembles, functional specificity), and field-specific terminology (conformational heterogeneity, structural biology). The topics are distinct and non-redundant. Minor improvements could include 'solution' as a context and slightly more specificity in 'protein binding mechanisms,' but these are negligible omissions that do not significantly impact the quality of the extraction.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing interdisciplinary topics that span multiple fields (e.g., economics, psychology, and sociology), requiring the extraction of concepts that bridge different domains</td>
+                <td class="prompt-inputs"><strong>content:</strong> The phenomenon of consumer choice in digital markets reveals complex interactions between individual psychological preferences, market structure, and social inequality. Behavioral economists have documented how cognitive biases—such as loss aversion and choice overload—influence purchasing decisions, while simultaneously, platform algorithms shape available options based on predictive models of user behavior. This creates a feedback loop where economic inequality affects digital access, which in turn influences psychological well-being through social comparison effects on social media. Furthermore, sociological research demonstrates that these digital consumption patterns reinforce existing class stratification, as affluent consumers gain access to premium algorithmic curation while lower-income users encounter targeted advertising designed to exploit decision-making vulnerabilities. The intersection of these mechanisms raises questions about market efficiency, individual autonomy, and distributive justice in the digital economy.<br><strong>goal:</strong> Identify and extract the key topics and concepts discussed in this interdisciplinary passage. The topics may span economics, psychology, and sociology. Return the results as a JSON array of strings, where each string represents a distinct topic or concept mentioned in the text.</td>
+                <td class="criteria">• Extracts topics spanning at least three different disciplines (economics, psychology, sociology)<br>• Includes both individual-level concepts (e.g., cognitive biases) and system-level concepts (e.g., market structure, social inequality)<br>• Captures bridging concepts that explicitly connect multiple domains (e.g., the feedback loop between inequality and digital access)<br>• Returns output as a valid JSON array of strings with no duplicates</td>
+                <td class="output"><pre>```json
+[
+  "consumer choice",
+  "digital markets",
+  "psychological preferences",
+  "market structure",
+  "social inequality",
+  "behavioral economics",
+  "cognitive biases",
+  "loss aversion",
+  "choice overload",
+  "platform algorithms",
+  "economic inequality",
+  "digital access",
+  "psychological well-being",
+  "social comparison effects",
+  "social media",
+  "digital consumption patterns",
+  "class stratification",
+  "algorithmic curation",
+  "targeted advertising",
+  "decision-making vulnerabilities",
+  "market efficiency",
+  "individual autonomy",
+  "distributive justice",
+  "digital economy"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it is a valid JSON array of strings with no duplicates, contains only topic names without commentary, and returns only the JSON array. It meets most secondary criteria by extracting topics across three disciplines and including both individual and system-level concepts. However, it falls short on explicitly capturing bridging concepts that connect multiple domains. The task asks for concepts that 'explicitly connect multiple domains,' and while the individual topics are present, the solution doesn't extract the relational/bridging concepts themselves (e.g., the feedback loop between inequality and digital access as a distinct topic). This is a notable but not critical gap, as the individual components are present.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
