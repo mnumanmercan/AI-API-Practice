@@ -49,3 +49,38 @@ with client.messages.stream(model=model, max_tokens=1000, messages=messages) as 
 **Prompt Engineering**, modelden istenen çıktıyı tutarlı biçimde elde etmek için komutu tasarlama ve iyileştirme sürecidir; multishot prompting ve XML etiketleriyle yapılandırma gibi teknikler bu kapsamda yer alır. Ancak iyi bir komut yazmak tek başına yeterli değildir — üretim ortamına geçildiğinde kullanıcılar sistemi hiç tahmin edilmeyen yollarla zorlayacak ve geliştirme sırasında sağlam görünen bir komut hızla bozulabilecektir.
 
 **Prompt Evaluation** ise komutun ne kadar güvenilir çalıştığını nesnel olarak ölçer. En sağlam yaklaşım, komutu otomatik bir değerlendirme hattından geçirip geniş test senaryoları üzerinde puanlamak ve bu verilere dayanarak yinelemektir — böylece zayıf noktalar kullanıcıya ulaşmadan yakalanır, farklı komut sürümleri karşılaştırılabilir ve her iyileştirme ölçülebilir kanıta dayanır.
+
+## Prompt Evals — Adım Adım Değerlendirme Hattı
+
+Bir eval pipeline'ının ilk adımı güvenilir bir test dataseti oluşturmaktır. [`006_prompt_evals.ipynb`](006_prompt_evals.ipynb) dosyasında bu dataset yine Claude'un kendisiyle üretilmiştir — modelden AWS ile ilgili Python, JSON veya Regex görevleri içeren bir JSON dizisi oluşturması istenmiş, yanıtın doğrudan geçerli JSON olarak başlaması için `assistant` prefill ve `stop_sequences` birlikte kullanılmıştır. Dataset [`dataset.json`](dataset.json) dosyasına kaydedilir; her nesne tek bir görev tanımı içerir ve tüm eval adımlarına girdi sağlar:
+
+```python
+add_user_message(messages, prompt)
+add_assistant_message(messages, "```json")      # prefill — model JSON'dan başlar
+text = chat(messages, stop_sequences=["```"])   # kapanış backtick'inde dur
+return json.loads(text)
+```
+
+İkinci adımda [`007_prompt_evals_grader.ipynb`](007_prompt_evals_grader.ipynb) ile **model tabanlı puanlama** devreye girer. Claude'un ürettiği her çıktı, yine Claude'a bir reviewer olarak gönderilir; model çıktıyı `strengths`, `weaknesses`, `reasoning` ve `score` (1–10) alanlarından oluşan yapılandırılmış bir JSON ile değerlendirir. Bu yaklaşımda da prefill + stop_sequences kullanılarak grader'ın çıktısı doğrudan `json.loads()` ile ayrıştırılır. Sonuçta elde edilen ortalama skor **7.17**'dir:
+
+```python
+def grade_by_model(test_case, output):
+    # eval_prompt içinde <task> ve <solution> XML etiketleriyle bağlam sağlanır
+    add_assistant_message(messages, "```json")
+    eval_text = chat(messages, stop_sequences=["```"])
+    return json.loads(eval_text)   # → {"strengths": [...], "score": 8, ...}
+```
+
+Üçüncü adımda [`008_prompt_evals_fns.ipynb`](008_prompt_evals_fns.ipynb) ile **syntax doğrulama** eklenir. Model puanlamasına ek olarak çıktının gerçekten çalışabilir kod olup olmadığı `ast.parse()`, `json.loads()` ve `re.compile()` ile denetlenir; sözdizimi geçerliyse 10, değilse 0 puan verilir. Nihai skor bu iki puanın ortalamasıdır. Aynı zamanda prompt da sıkılaştırılmış — `run_prompt()` fonksiyonu artık modeli yalnızca ham kod üretmeye yönlendiriyor ve çıktısını `"```code"` prefill ile temizliyor. Bu değişiklikler ortalama skoru **8.0**'a taşır:
+
+```python
+syntax_score = grade_syntax(output, test_case)   # 10 ya da 0
+score = (model_score + syntax_score) / 2         # kombine skor
+```
+
+Son adımda [`009_prompt_evals_complete.ipynb`](009_prompt_evals_complete.ipynb) ile dataset şemasına `solution_criteria` alanı eklenir. Grader artık göreve özel kriterler üzerinden değerlendirir; bu sayede puanlama daha tutarlı ve nesnel hale gelir. Dört aşamanın birleşik sonucu olarak ortalama skor **8.17**'ye ulaşır. Tüm pipeline şu döngüyü izler: dataset oluştur → her görevi modele çözdür → hem model hem syntax ile puanla → ortalama skoru raporla:
+
+```
+generate_dataset() → run_prompt() → grade_by_model() + grade_syntax() → run_eval()
+Avg score: 7.17  →  8.0  →  8.17   (her adımda ölçülebilir iyileşme)
+```

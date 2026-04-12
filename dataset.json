@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Parse an AWS CloudTrail log entry and extract the event name, source IP, and timestamp",
+    "format": "python",
+    "solution_criteria": "Function should accept a CloudTrail JSON log entry and return a dictionary with 'event_name', 'source_ip', and 'timestamp' keys. Should handle missing fields gracefully."
+  },
+  {
+    "task": "Create a CloudFormation template structure for an S3 bucket with versioning enabled and public access blocked",
+    "format": "json",
+    "solution_criteria": "Valid CloudFormation JSON template that defines an S3 bucket resource with VersioningConfiguration and PublicAccessBlockConfiguration properties properly configured."
+  },
+  {
+    "task": "Extract AWS IAM role ARN from a string containing multiple AWS resource identifiers",
+    "format": "regex",
+    "solution_criteria": "Regular expression that matches AWS IAM role ARNs in the format 'arn:aws:iam::ACCOUNT-ID:role/ROLE-NAME' and correctly ignores other ARN types (user, policy, etc)."
+  }
+]
